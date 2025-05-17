@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string></string>
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
+    <key>GITHUB_TOKEN</key>
+    <string>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</string>
+</dict>
+</plist>
