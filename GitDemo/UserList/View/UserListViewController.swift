@@ -40,14 +40,14 @@ class UserListViewController: UIViewController {
         // Pull up to load more users. If there is no more data, it will show "No Data"
         tableView.mj_footer = MJRefreshAutoNormalFooter(
             refreshingBlock: { [weak self] in
-                self?.viewModel.since += 1
+//                self?.viewModel.since += 1
                 self?.viewModel.fetchUsers(type: .pullUp)
             }
         )
         // Pull down to refresh and get the first page of data
         tableView.mj_header = MJRefreshNormalHeader(
             refreshingBlock: { [weak self] in
-                self?.viewModel.since = 1
+                self?.viewModel.since = 0
                 self?.viewModel.fetchUsers(type: .pullDown)
             }
         )
@@ -60,8 +60,14 @@ class UserListViewController: UIViewController {
                     self?.tableView.mj_footer?.endRefreshing()
                 } else if type == .pullDown {
                     self?.tableView.mj_header?.endRefreshing()
+                    self?.tableView.mj_footer?.resetNoMoreData()
                 } else if type == .noMoreData {
                     self?.tableView.mj_footer?.endRefreshingWithNoMoreData()
+                } else if type == .failure {
+                    // Only end the refresh controls without reloading the data
+                    self?.tableView.mj_footer?.endRefreshing()
+                    self?.tableView.mj_header?.endRefreshing()
+                    return
                 }
                 self?.tableView.reloadData()
             }

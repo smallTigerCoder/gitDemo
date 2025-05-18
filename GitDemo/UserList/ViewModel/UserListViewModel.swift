@@ -13,6 +13,7 @@ enum RefreshType {
     case pullDown     // Pull-down refresh
     case pullUp       // Pull-up load more
     case noMoreData   // No more data available
+    case failure      // Request failed
 }
 
 class UserListViewModel {
@@ -32,19 +33,27 @@ class UserListViewModel {
             
             switch result {
             case .success(let users):
-                if self.since == 1 {
+                
+                if users.isEmpty && self.since == 0 {
+                    self.users = []
+                    self.didUpdate?(.noMoreData)
+                    return
+                }
+                
+                if self.since == 0 {
                     self.users = users
                 } else {
                     self.users.append(contentsOf: users)
                 }
                 
+    // update since: use the ID of the last user
+                self.since = users.last?.id ?? self.since
                 users.count < self.perPage ? self.didUpdate?(.noMoreData) : self.didUpdate?(type)
                 
             case .failure(let error):
-                // When the request fails, decrement 'since' to prevent an infinite loop.
-                self.since -= 1
+                AlertManager.shared.showToast(message: "Failed to fetch users: \(error)")
                 print("Failed to fetch users: \(error)")
-                self.didUpdate?(type)
+                self.didUpdate?(.failure)
             }
         }
     }
