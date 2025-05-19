@@ -1,6 +1,6 @@
 # GitHub User Browser App
 
-This iOS app is developed as part of a technical assessment for **Money Forward, Inc.**, a leading Japanese fintech company.
+This iOS app is developed as part of a technical assessment for a technical interview project, a leading Japanese fintech company.
 
 It allows users to search GitHub users, view user details and repositories, and browse repository pages. The app is structured using a scalable **MVVM + Router** architecture, with modular folders and clean separation of concerns.
 
@@ -139,7 +139,7 @@ The project follows the **MVVM (Model-View-ViewModel)** pattern and utilizes a *
 - English proficiency:
   - IELTS score: **6.0 overall**, **6.5 in speaking**
   - Comfortable in English communication and documentation.
-- I appreciate Money Forward’s emphasis on both **engineering excellence** and **cultural fit**.
+- I appreciate your emphasis on both **engineering excellence** and **cultural fit**.
 
 ---
 
@@ -148,4 +148,4 @@ The project follows the **MVVM (Model-View-ViewModel)** pattern and utilizes a *
 - **GitHub Repo**: [https://github.com/smallTigerCoder/gitDemo](https://github.com/smallTigerCoder/gitDemo)
 - **GitHub Token**: Injected via `Info.plist`, not hardcoded or committed.
 
-Thank you for reviewing this submission! I am excited about the opportunity to join Money Forward and contribute to its mission with my iOS expertise and product mindset.
+Thank you for reviewing this submission! I am excited about the opportunity to join you and contribute to its mission with my iOS expertise and product mindset.
